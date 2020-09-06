@@ -27,7 +27,7 @@ create .env file and type DB_CONNECTION=<mongo_connection_link>
 ## Deployment
 
 
-To deploy the project in your computer you need to open 5 CLI terminals and run the following command in separate terminals:
+All the project is served from the ./app dir folder, to deploy the project in your computer you need to open 4 CLI terminals and run the following commands:
 
 ```
 The first terminal:
