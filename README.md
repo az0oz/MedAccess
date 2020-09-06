@@ -60,5 +60,5 @@ truffle migrate
 After running these commands, you need to go the browser and type 
 http://localhost:2000/home
 Then you will see the Metamask provider prompt you to connect the blockchain with your accounts, you must agree to this connection to facilitate the smart contracts manipulations with the local blockchain.
-In the fourth terminal there are 10 generated accounts with privates keys, you can take any and and add it to your Metamask account.
+In the fourth terminal there are 10 generated accounts with privates keys, you can take any and and add it to your Metamask account via import account option.
 ```
