@@ -1,0 +1,105 @@
+{
+  "name": "medacess",
+  "version": "1.0.0",
+  "description": "Blockchain EHR using IPFS",
+  "main": "app.js",
+  "scripts": {
+    "dev-front": "webpack -p --mode=development",
+    "dev-back": "nodemon app.js",
+    "dev":  "concurrently \"webpack -p --mode=development\" \"nodemon app.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --output-public-path=app/build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Abdulaziz_Lamoli/medacess.git"
+  },
+  "keywords": [
+    "IPFS",
+    "EHR",
+    "BLOCKCHAIN",
+    "ACCESS",
+    "MANAGEMENT"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Abdulaziz_Lamoli/medacess/issues"
+  },
+  "homepage": "https://gitlab.com/Abdulaziz_Lamoli/medacess#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "BufferList": "0.0.0",
+    "babel-loader": "^8.0.6",
+    "bcryptjs": "^2.4.3",
+    "bl": "^4.0.2",
+    "blob": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "browserify": "^16.5.0",
+    "buffer": "^5.4.3",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.2",
+    "compression": "^1.7.4",
+    "concurrently": "^5.3.0",
+    "connect-flash": "^0.1.1",
+    "cross-env": "^7.0.0",
+    "delay": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "electron": "^8.0.1",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.3.1",
+    "ipfs-http-client": "^42.0.0",
+    "json-loader": "^0.5.7",
+    "jspdf": "^1.5.3",
+    "moment": "^2.24.0",
+    "mongodb-client-encryption": "^1.0.1",
+    "mongoose": "^5.8.9",
+    "mongoose-unique-validator": "^2.0.3",
+    "multer": "^1.4.2",
+    "node-rsa": "^1.0.7",
+    "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.2",
+    "open": "^7.0.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pdfkit": "^0.11.0",
+    "rimraf": "^3.0.2",
+    "truffle": "^5.1.12",
+    "web3": "^1.2.6",
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-async-generator-functions": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^10.0.0",
+    "esmify": "^2.1.1",
+    "oz": "^5.0.3",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
+  }
+}

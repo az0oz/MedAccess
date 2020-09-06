@@ -1,0 +1,9 @@
+node_modules
+dist
+go-ipfs
+uploads
+./build/contracts
+./app/uploads
+./app/go-ipfs
+./node_modules
+.env

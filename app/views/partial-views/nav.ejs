@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand p-2 m-3" id="logo" href="/home"> <img src="assets/img/logo2.png" alt="logo"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse main-menu-item justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav align-items-center">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <%if (user) { %>
+                <a class="nav-link" href="/user/<%=user.role%>/dashboard">Dashboard</a>
+                <% } else {%>
+                    <a class="nav-link" href="/user/login">Dashboard</a>
+                <%} %>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/#about_us_section">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/#our_services_section">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/#contact_us_section">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <% if(!user) { %>
+    <a class="btn_2 d-none d-block mr-1" href="/user/register">Register</a>
+    <a class="btn_2 d-none d-block" href="/user/login">Login</a>
+    <% } else { %>
+        <a class="btn_2 d-none d-block" href="/user/logout">Logout</a>
+     <% } %>   
+</nav>

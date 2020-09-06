@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+    <!--::header part start::-->
+    <%- include('partial-views/header.ejs') %>
+    <!-- Header part end-->
+    
+    <!-- breadcrumb start-->
+    <%- include('partial-views/breadcrumb_part.ejs') %>
+    
+    <!-- breadcrumb start-->
+    
+    <!-- about us part start-->
+    
+    
+    <!-- our depertment part start-->
+    <section class="section_padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container col-lg-12 col-md-8 justify-content-center text-center">
+                    <%- include('partial-views/return-to-dashboard.ejs') %>
+                    <div class="row justify-content-center text-center">
+                        <div class="col-xl-12">
+                            <div class="depertment_content col-xl-12">
+                                <div class="row justify-content-center col-xl-12">
+                                    <form action="#" class="col-xl-12 needs-validation" novalidate enctype="multipart/form-data">
+                                        <%- include('feedback-messages-ajax.ejs') %>
+                                        <h2 class="p-4">Create EHR</h2>
+                                        <hr>
+                                        <section>
+                                            <%- include('partial-views/feedback-modal.ejs') %>
+                                            <h3 class="p-4 text-left">Patient Details</h3>      
+                                            <div class="form-row">
+                                                <div class="mt-10 col-xl-6">
+                                                    <input class="form-control" type="text" name="record-instance-name" id="record-instance-name"
+                                                    placeholder="Enter Record Instance Name" onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Enter Record Instance Name'" required
+                                                    class="single-input">
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <input class="form-control" type="text" name="facilitator-name" id="facilitator-name"
+                                                    placeholder="<%=facilitator_name%>" disabled value="<%=facilitator_name%>" class="single-input">
+                                                    <input class="form-control" type="hidden" name="facilitator-email" id="facilitator-email"
+                                                    placeholder="<%=facilitator_email%>" disabled value="<%=facilitator_email%>" class="single-input">
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <select class="form-control" name="select-patient" id="select-patient">
+                                                        <option selected>Select Patient</option>
+                                                        <% facilitatorAuthorizedPatientsEmails.forEach( (patient) => {%>
+                                                        <option value="<%=patient.email%>"><%=patient.name%></option>
+                                                        <% }); %>
+                                                    </select>
+                                                    <div class="invalid-feedback">Please Choose a Patient</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <select class="form-control required" name="select-blood" id="select-blood" required>
+                                                        <option value="" selected>Select Blood Type</option>
+                                                        <option value="A+">A+</option>
+                                                        <option value="A-">A-</option>
+                                                        <option value="B+">B+</option>
+                                                        <option value="B-">B-</option>
+                                                        <option value="AB+">AB+</option>
+                                                        <option value="AB-">AB-</option>
+                                                        <option value="O+">O+</option>
+                                                        <option value="O-">O-</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Please Select Blood Type</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <input type="number" class="form-control" width="6px" type="text" name="avg-bpm" id="avg-bpm"
+                                                    placeholder="Average BPM" onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Average BPM'" required
+                                                    class="single-input">
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <input class="form-control" type="number" name="height" id="height"
+                                                    placeholder="Height" onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Height'" required
+                                                    class="single-input">
+                                                    <div class="invalid-feedback">Please Enter Patient Height</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <input class="form-control" type="number" name="blood-pressure" id="blood-pressure"
+                                                    placeholder="Blood Pressure" onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Blood Pressure'" required
+                                                    class="single-input">
+                                                    <div class="invalid-feedback">Please Enter Patient Blood Pressure</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <input class="form-control" type="number" name="weight" id="weight"
+                                                    placeholder="Weight" onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Weight'" required
+                                                    class="single-input">
+                                                    <div class="invalid-feedback">Please Enter Patient weight</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <select class="form-control required" id="activity" required>
+                                                        <option value="" selected>Select physical activity level
+                                                        </option>
+                                                        <option value="active">Active</option>
+                                                        <option value="not-active">Not Active</option>
+                                                    </select>
+                                                    ​​<div class="invalid-feedback">Please select Patient activity level</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <input id="temperature" class="form-control" type="number" name="temperature"
+                                                    placeholder="Temperature" onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Temperature'" required
+                                                    class="single-input">
+                                                    ​<div class="invalid-feedback">Please Enter Patient Tempweature</div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <section>
+                                            <h3 class="p-4 text-left">Diagnosis</h3>
+                                            <div class="form-row">
+                                                <div class=" mt-10 col-xl-6">
+                                                    <textarea id="primary_diagnosis" class="form-control" placeholder="Primary Diagnosis"
+                                                    onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Primary Diagnosis'"
+                                                    required></textarea>
+                                                    ​<div class="invalid-feedback">Please Enter Primary Diagnosis</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <textarea id="symptoms" class="form-control" placeholder="Symptoms"
+                                                    onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Symptoms'" required></textarea>
+                                                    ​<div class="invalid-feedback">Please Enter Symptoms </div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <textarea id="illness_diseases" class="form-control" placeholder="Illness and Disease"
+                                                    onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Illness and Disease'"
+                                                    required></textarea>
+                                                    <div class="invalid-feedback">Please Enter Illness and Disease </div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <textarea id="notes" class="form-control" placeholder="Notes"
+                                                    onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Notes'" ></textarea>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <section>
+                                            <h3 class="p-4 text-left">Treatment Plan</h3>
+                                            <div class="form-row">
+                                                <div class="mt-10 col-xl-6">
+                                                    <textarea id="lab_treats" class="form-control" placeholder="Required Lab Treats"
+                                                    onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Required Lab Treats'"
+                                                    required></textarea>
+                                                    <div class="invalid-feedback">Please Enter Lab Treates </div>
+                                                </div>
+                                                ​
+                                                <div class="mt-10 col-xl-6">
+                                                    <textarea id="medication" class="form-control" placeholder="Prescribed Medication"
+                                                    onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Prescribed Medication'"
+                                                    required></textarea>
+                                                    <div class="invalid-feedback">Please Enter Medication</div>
+                                                </div>
+                                                <div class="mt-10 col-xl-6">
+                                                    <textarea id="notes2" class="form-control" placeholder="Notes"
+                                                    onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Notes'" ></textarea>
+
+                                                </div>
+                                            </div>
+                                            
+                                        </section>
+                                        <section>
+                                            <div class="regerv_btn mt-10">
+                                                <button class="btn_2" id="add-record-instance">Add Record Instance</button>
+                                            </div>
+                                        </section>
+                                    </form>
+                                    <!--::regervation_part end::-->
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- our depertment part end-->
+
+<!-- footer part start-->
+<%- include('partial-views/footer.ejs') %>
+
+<!-- footer part end-->
+
+<!-- jquery plugins here-->
+</body>
+
+</html>

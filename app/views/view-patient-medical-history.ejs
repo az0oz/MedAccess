@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+    <!--::header part start::-->
+    <%- include('partial-views/header.ejs') %>
+    <!-- Header part end-->
+    
+    <!-- breadcrumb start-->
+    <%- include('partial-views/breadcrumb_part.ejs') %>
+    
+    <!-- breadcrumb end-->
+    
+    <!-- our depertment part start-->
+    <section class="section_padding">
+        <div class="container-fluid">
+            <div class="row">
+                <section class="container pb-5 col-lg-12">
+                        <%- include('partial-views/return-to-dashboard.ejs') %>
+                        <%- include('feedback-messages-ajax.ejs') %>
+                        <h2 class="mb-30 text-center">View Patient Medical History</h2>
+                        <%- include('partial-views/feedback-modal.ejs') %>
+                        <div class="p-3 my-3 border">
+                                <div class="d-flex table-head text-center">
+                                    <div class="justify-content-center">
+                                        <h3 class=" mb-3"> Patient <%=user.name%> EHR </h3>
+                                    </div>
+                                    <div class="justify-content-end ml-auto ">
+                                        <a href="#" class="mr-5 show-patient-ehr">
+                                            <i id="minMax" class="fas fa-arrow-down"></i></a>
+                                    </div>
+                                   
+                                </div>
+                                <table class="patient-ehr table table-bordered" style="width: 100%;">
+                                    <thead class="">
+                                        <tr>
+                                            <th class="">Record_Id</th>
+                                            <th class="">Patient_Name</th>
+                                            <th class="">Patient_Email</th>
+                                            <th class="">Facilitator_Name</th>
+                                            <th class="">Facilitator_Role</th>
+                                            <th class="">Record_Name</th>
+                                            <th class="">Creation_Date</th>
+                                            <th class="d-none">Record_Hash</th>
+                                            <th class="">View_Record</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% patientEHR.forEach( (medicalRecordInstance) => { %>
+                                            <tr class="table-row">
+                                                <td class="
+                                                "><%=medicalRecordInstance[0]%></td>
+                                                <td class="patient_name 
+                                                "><%=medicalRecordInstance[1]%></td>
+                                                <td class="patient_email 
+                                                "><%=medicalRecordInstance[2]%></td>
+                                                <td class="facilitator_name 
+                                                "><%=medicalRecordInstance[3]%></td>
+                                                <td class="facilitator_role 
+                                                "><%=medicalRecordInstance[4]%></td>
+                                                <td class="record_name 
+                                                "><%=medicalRecordInstance[5]%></td>
+                                                <td class="date
+                                                "><%=medicalRecordInstance[6]%></td>
+                                                <td class="record_hash d-none
+                                                "><%=medicalRecordInstance[7]%></td>
+                                                <td class="view-record-instance
+                                                "><button class="btn btn-primary" type="button">View</button></td>
+                                            </tr>
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <!-- our depertment part end-->
+            <!-- footer part start-->
+            <%- include('partial-views/footer.ejs') %>
+            <!-- footer part end-->
+            
+        </body>
+        
+        </html>

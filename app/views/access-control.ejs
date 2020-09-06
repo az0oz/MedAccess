@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+
+<body>
+    <!--::header part start::-->
+    <%- include('partial-views/header.ejs') %>
+    <!-- Header part end-->
+    
+    <!-- breadcrumb start-->
+    <%- include('partial-views/breadcrumb_part.ejs') %>
+    
+    <!-- breadcrumb end-->
+    
+    
+    
+    <!-- our depertment part start-->
+    <section class="section_padding">
+        <th class="container-fluid">
+            <div class="row">
+                <section class="container pb-5 col-md-12">
+                    <%- include('partial-views/return-to-dashboard.ejs') %>
+                    <%- messages('feedback-messages', locals) %>
+                    <!-- pop-up private-key attachment modal-->
+                    <div class="modal fade" id="attachModal" tabindex="-1" role="dialog"  aria-labelledby="attachModal"  aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div id="attachment_key" class="modal-body text-center">
+                                    <p class="m-4">Please Write Your Private Key</p>
+                                    <textarea class="form-group" name="keyArea" id="keyArea" cols="35" rows="15"></textarea>
+                                </div>
+                                <div class="modal-footer text-center">
+                                    <button type="button" id="submit-key" class="btn btn-secondary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="mb-30 text-center">Control Access</h2>
+                    <hr>
+                    <div class="mt-5 progress-table-wrap">
+                        <table class="table table-striped table-bordered" id="access-control-table">
+                            <thead class="">
+                                <tr>
+                                    <th class="">ID</th>
+                                    <th class="">Name</th>
+                                    <th class="">Role</th>
+                                    <th class="">Access Status</th>
+                                    <th class="">Grant/Remove Access</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <%for(let i =0;i< queriedFacilitators.length;i++) {%>
+                                <% for (let j=0;j<=0;j++){%>   
+                                    <tr class="table-row ">
+                                        <td class=" ml-2" name="id" id="id">
+                                            <%= queriedFacilitators[i].id %>
+                                        </td>
+                                        <td class="" value ="<%= queriedFacilitators[i].name %>" name="name">
+                                            <%= queriedFacilitators[i].name %>
+                                        </td>
+                                        <td class="" value ="<%= queriedFacilitators[i].role %>" name="role">
+                                            <%= queriedFacilitators[i].role %>
+                                        </td>
+                                        <%  if(listOfFacilitators.includes(queriedFacilitators[i].id.toString())) { %>
+                                            
+                                            <td class="" name="access">
+                                                <p> Granted</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <form method="POST" action="/user/patient/access-control/removeAccess/<%= queriedFacilitators[i].id %>">
+                                                    <button type="submit" name = "remove-access" class="grant-access genric-btn danger circle">
+                                                        Ungrant
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <% } else if (!listOfFacilitators.includes(queriedFacilitators[i].id.toString()) || listOfFacilitators.length==0) { %>
+                                                <td class="" name="access">
+                                                    <p> Ungranted</p>
+                                                </td>
+                                                <td class="text-center">    
+                                                    <form method="POST" action="/user/patient/access-control/grantAccess/<%= queriedFacilitators[i].id %>">
+                                                        <button type="button" name="submit-grant-access" class="submit-grant-access grant-access genric-btn success circle">
+                                                            Grant
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                                <% } %>  
+                                                
+                                            </tr>
+                                            <% } %> 
+                                            <% } %>
+                                        </tbody>
+                                     </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- our depertment part end-->
+                    
+                    <!-- footer part start-->
+                    <%- include('partial-views/footer.ejs') %>
+                    <!-- footer part end-->
+                    
+                    <!-- jquer  y plugins here-->
+                    </html>

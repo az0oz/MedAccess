@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+    <!--::header part start::-->
+    <%- include('partial-views/header.ejs') %>
+    <!-- Header part end-->
+    
+    <!-- breadcrumb start-->
+    <%- include('partial-views/breadcrumb_part.ejs') %>
+    
+    <!-- breadcrumb start-->
+
+    
+    <!-- our depertment part start-->
+    <section class="section_padding">
+        <div class="container-fluid">
+                <article class="pb-5 col-xl-12">
+                    <div class="container">
+                        <%- include('partial-views/return-to-dashboard.ejs') %>
+                        <h2 class="mb-30 text-center">View Profile</h2>
+                        <hr>
+                    </div>
+                    <div class="col-lg-12 text-center" id="profile">
+                        <div class="row ">
+                                <div class="col-lg-6 mb-2 p-1">
+                                    <i class="far fa-address-card"></i>
+                                        <span class="mr-4 ">Name:</span>
+                                        <span name="name"><%=user.name%></span>
+
+                                </div>
+                                <div class="col-lg-6 mb-2 p-1">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                        <span class="mr-4">Email:</span>
+                                        <span name="email" class=""><%=user.email%></span>
+                                </div>
+                                               
+                                <div class="col-lg-6 mb-2 p-1">
+                                    <i class="fas fa-calendar-day"></i>
+                                        <span class="mr-4">Date Of Birth:</span>
+                                        <span name="bday"><%=moment(user.dateOfBirth).format( 'DD-MM-YYYY')%></span>
+                                </div>
+                                                 
+                                <div class="col-lg-6 mb-2 p-1">
+                                    <i class="fas fa-dna"></i>
+                                        <span class="mr-4">Sex:</span>
+                                        <span name="sex"><%=user.sex%></span>
+                                </div>
+                                <div class="col-lg-12 mb-2 p-1">
+                                    <i class="fas fa-user-tag"></i>
+                                        <span class="mr-4">Role:</span>
+                                        <span name="role"><%=user.role%></span>
+                                </div> 
+                        </div>
+                    </div>
+                </article>
+        </div>
+    </section>
+    
+    <!-- our depertment part end-->
+    <!-- footer part start-->
+    <%- include('partial-views/footer.ejs') %>
+    <!-- footer part end-->
+    
+</body>
+
+</html>

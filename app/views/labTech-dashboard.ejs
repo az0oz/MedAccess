@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+    <!--::header part start::-->
+    <%- include('partial-views/header.ejs') %>
+    <!--::header part end::-->
+    
+    <!-- breadcrumb start-->
+    <%- include('partial-views/breadcrumb_part.ejs') %>
+    
+    <!-- breadcrumb end-->
+    
+    <section class="dashboard_area section_padding">
+        <div class="container">
+            <%- messages('feedback-messages', locals) %>
+             <div class="pt-2 row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="dashboard_left_sidebar">
+                        <article class="dashboard_item">
+                            <div class="dashboard_item_img ">
+                                <img class="card-img rounded-0" src="/assets/img/profile.png" alt="profile">
+                            </div>
+                            <div class="dashboard_details">
+                                <a class="d-inline-block align-items-center" href="/user/<%=user.role%>/profile/<%=user.id%>">
+                                    <h2 class="">Profile</h2>
+                                </a>
+                                <p>This section is dedicated to managing user's profiles</p>
+                                <ul class="dashboard-info-link">
+                                    <li><a href="/user/<%=user.role%>/profile/<%=user.id%>"><i class="far fa-user"></i> View</a></li>
+                                    <li><a href="/user/<%=user.role%>/profile/edit/<%= user.id %>"><i class="fas fa-pen"></i> Edit</a></li>
+                                </ul>
+                            </div>
+                        </article>     
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="dashboard_left_sidebar">
+                        <article class="dashboard_item">
+                            <div class="dashboard_item_img ">
+                                <img class="card-img rounded-0" src="/assets/img/lab-tests.png" alt="lab-tests">
+                            </div>
+                            
+                            <div class="dashboard_details">
+                                <a class="d-inline-block align-items-center" href="/user/<%=user.role%>/add-lab-results">
+                                    <h2>Attach Lab Results</h2>
+                                </a>
+                                <p>This section is dedicated to adding lab results illustration to the patient EHR</p>
+                                <ul class="dashboard-info-link">
+                                    <li><a href="/user/<%=user.role%>/add-lab-results"><i class="fas fa-upload"></i> Attach</a></li>
+                                </ul>
+                            </div>
+                        </article>   
+                    </div>
+                 </div>
+                 <div id="center-dashboard_item"  class="container col-lg-6  mb-5 mb-lg-0">
+                    <div class="dashboard_left_sidebar">
+                        <article class="dashboard_item">
+                            <div class="dashboard_item_img ">
+                                <img class="card-img rounded-0" src="/assets/img/ehr_history.png" alt="ehr_history">
+                            </div>
+                            <div class="dashboard_details">
+                                <a class="d-inline-block align-items-center" href="/user/<%=user.role%>/patient-medical-history">
+                                    <h2 class="">Patient Medical History</h2>
+                                </a>
+                                <p>This section is dedicated to retrieving and viewing documented patients' EHR</p>
+                                <ul class="dashboard-info-link">
+                                    <li><a href="/user/<%=user.role%>/patient-medical-history/<%=user._id%>"><i class="fas fa-book-medical"></i> View</a></li>
+                                </ul>
+                            </div>
+                        </article>   
+                    </div>
+                 </div>
+        </div>
+    </section>
+    
+    <!-- footer part start-->
+    <%- include('partial-views/footer.ejs') %>
+    
+    <!-- footer part end-->
+    
+    <!-- jquery plugins here-->
+</body>
+
+</html>
+
+

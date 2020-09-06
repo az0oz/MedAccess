@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+    <!--::header part start::-->
+    <%- include('partial-views/header.ejs') %>
+    <!-- Header part end-->
+
+    <!-- breadcrumb start-->
+    <%- include('partial-views/breadcrumb_part.ejs') %>
+
+    <!-- breadcrumb end-->
+
+    <!-- about us part start-->
+
+    <!-- our depertment part start-->
+    <section class="pb-5 pt-3">
+        <div class="container">
+            <%- include('partial-views/return-to-dashboard.ejs') %>
+            <div class="row justify-content-center text-center">
+                <div class="col-xl-12">
+                    <div class="depertment_content">
+                        <div class="row justify-content-center">
+                            <form class="needs-validation" id="edit-form" action="/user/<%=user.role%>/profile/edit/<%= user.id %>" method="POST" novalidate>
+                                <h2 class="p-3 ">Edit Your Profile</h2>
+                                <%- messages('feedback-messages', locals) %>
+                                <hr class="p-2">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" name="name" required
+                                            placeholder="Enter Full Name" value='<%=user.name %>'>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" name="email" required
+                                            placeholder="Email address" value='<%=user.email %>'>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        
+                                        
+                                        <select id="sex" name="sex" class="form-control">
+                                            
+                                            <option value="" selected disabled hidden>Select sex</option>
+                                            
+                                            <option value="male" <% if (user.sex == "male"){%> Selected  <% } %>  > Male</option>
+                                            <option value="female" <% if (user.sex == "female"){%> Selected  <% } %> >Female</option>
+                                         
+                                        </select>
+                                       
+                                    </div>
+                                   
+                                    <div class="form-group col-md-6">
+                                        <input type="date" name="bday" min="1920-01-01" max="2020-01-01" value="<%=moment(user.dateOfBirth).format( 'YYYY-MM-DD')%>"
+                                            class="form-control">
+                                    </div>
+                                   
+                                </div>
+                                <div class="regerv_btn">
+                                    <button type="submit" class="btn_2" id="update">Edit Profile</button>
+                                </div>
+                            </form>
+                            <!--::regervation_part end::-->
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our depertment part end-->
+
+    <!-- footer part start-->
+    <%- include('partial-views/footer.ejs') %>
+
+    <!-- footer part end-->
+    
+</body>
+
+</html>

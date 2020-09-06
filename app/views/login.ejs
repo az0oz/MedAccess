@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+      <!--::header part start::-->
+      <%- include('partial-views/header.ejs') %>
+      <!-- Header part end-->
+</head>
+
+<body>
+
+
+    <!-- breadcrumb start-->
+    <%- include('partial-views/breadcrumb_part.ejs') %>
+    <!-- breadcrumb start-->
+
+    <!-- about us part start-->
+
+
+    <!-- our depertment part start-->
+    <section class="pb-5 pt-3">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-xl-10">
+                    <div class="depertment_content">
+                        <div class="row justify-content-center">
+                            <form class="needs-validation" id="login-form" action="/user/login/" method="POST" novalidate> 
+                                <%- messages('feedback-messages', locals) %>
+                                <h2 class="p-3 ">Login</h2>
+                                <hr class="p-2">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input type="email" name="username" class="form-control" required
+                                            placeholder="Email address">
+                                            <div class="invalid-feedback">Please Enter Your Email</div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <input type="password" name="password" class="form-control" required 
+                                            placeholder="Enter Your Password">
+                                            <div class="invalid-feedback">Please Enter Your Password</div>
+                                    </div>
+                                </div>
+                                <div class="regerv_btn">
+                                    <button type="submit" class="btn_2" id="login">Login</button>
+                                </div>
+                            </form>
+                            <!--::regervation_part end::-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our depertment part end-->
+
+    <!-- footer part start-->
+    <%- include('partial-views/footer.ejs') %>
+
+    <!-- footer part end-->
+
+    <!-- jquery plugins here-->
+
+</body>
+
+</html>
