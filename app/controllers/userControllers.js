@@ -121,12 +121,12 @@ async function sendUserEmail(name, email, privateKey) {
         secure: false,
         requireTLS: true,
         auth: {
-            user: 'medaccessTeam@gmail.com',
-            pass: '0099112233fcb'
+            user: 'email',
+            pass: 'pass'
         }
     });
     let mailOptions = {
-        from: 'medaccessTeam@gmail.com',
+        from: 'email',
         to: email,
         subject: 'Registration Confirmed',
         text: 'Hi ' + name + ' thank you for your registering in our services, here is your generated '
